@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    min-height: 100%;
+}
+
+.form-signin {
+    min-height: 200px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 220px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px;
+    background: #eee;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.form-signin button {
+    background:none;
+    border:none;
+    box-shadow:none;
+}
+
+.form-signin button:hover {
+    background:none;
+    border:none;
+    box-shadow:none;
+}
+
+.form-signin .large {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-signin input[type=text],
+.form-signin input[type=email],
+.form-signin input[type=password],
+.create textarea {
+    border: 1px solid #333;
+    width: 100%;
+    resize: none;
+    background-color: #eee;
+    margin-bottom: 5px;
+}
+
+.series {
+    background: #eee;
+}
+
+.series-details {
+    background: #eee;
+}

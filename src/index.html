@@ -1,0 +1,64 @@
+<!doctype html>
+<html ng-app="ang08">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ANG08</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+  </head>
+  <body ng-controller="MainCtrl as main" ng-class="{loading:loadingView}" class="bg-{{main.currentColor}}">
+    <div class="app-wrap">
+      <header class="navbar-clear nav-wrap" role="banner">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a ui-sref="seriesList" class="navbar-brand"><img src="assets/images/logo.png" alt="ang08"/></a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a class="btn btn-link" ng-if="main.currentUser" ng-click="main.logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <div ui-view class="content"></div>
+
+      <div class="modal"></div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="//cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+    <script src="//cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <script src="vendor/angular-ui-router.min.js"></script>
+
+    <script src="app/ang08.js"></script>
+    <script src="app/common/common.js"></script>
+    <script src="app/common/models/series-model.js"></script>
+    <script src="app/common/models/user-model.js"></script>
+    <script src="app/common/models/notes-model.js"></script>
+    <script src="app/common/services/auth-service.js"></script>
+    <script src="app/series/series-controller.js"></script>
+    <script src="app/series/notes/notes-controller.js"></script>
+    <script src="app/series/notes/note-directive.js"></script>
+    <script src="app/login/login-controller.js"></script>
+    <script src="app/main/main-controller.js"></script>
+    <script>
+      var navMain = angular.element(".navbar-collapse");
+      navMain.on("click", "a", null, function () {
+         navMain.collapse('hide');
+      });
+    </script>
+  </body>
+</html>

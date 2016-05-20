@@ -1,0 +1,132 @@
+<div class="col-sm-4">
+    <div class="series">
+        <series ng-repeat="(seriesId, series) in ctrl.seriesList"></series>
+    </div>
+</div>
+
+<div class="col-sm-8">
+    <!-- CREATING -->
+    <div ng-if="!ctrl.isEditing" class="col-xs-12 series-details">
+        <h3>Create a New Series</h3>
+        <form
+                name="ctrl.createForm"
+                class="create-form"
+                role="form"
+                ng-submit="ctrl.createSeries(ctrl.newSeries, ctrl.createForm.$valid)"
+                novalidate>
+
+            <div class="form-group">
+                <label>Series Title</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        ng-model="ctrl.newSeries.title"
+                        placeholder="Series Title"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label>Series Start Date</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        ng-model="ctrl.newSeries.startDate"
+                        placeholder="Series Start Date (MM/dd/YYYY)"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label>Series Description</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        ng-model="ctrl.newSeries.description"
+                        placeholder="Series Description"
+                        >
+            </div>
+
+            <div class="form-group">
+                <label>Series Director</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        ng-model="ctrl.newSeries.director"
+                        placeholder="Series Director"
+                        >
+            </div>
+
+            <button
+                    type="submit"
+                    class="btn btn-info btn-lg" style="margin-bottom: 6px"
+                    ng-disabled="ctrl.loading">
+                Create
+                <span ng-show="ctrl.loading" class="glyphicon glyphicon-refresh"></span>
+            </button>
+        </form>
+    </div>
+    <!-- EDITING -->
+    <div ng-if="ctrl.isEditing" class="col-xs-12 series-details">
+        <h3>Editing {{ ctrl.editedSeries.title }}</h3>
+        <form
+                name="ctrl.updateForm"
+                class="edit-form"
+                role="form"
+                ng-submit="ctrl.updateSeries(ctrl.editedSeriesId, ctrl.editedSeries, ctrl.updateForm.$valid)"
+                novalidate>
+
+            <div class="form-group">
+                <label>Series Title</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        ng-model="ctrl.editedSeries.title"
+                        placeholder="Series Title"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label>Series Start Date</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        ng-model="ctrl.editedSeries.startDate"
+                        placeholder="Series Start Date"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label>Series Description</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        ng-model="ctrl.editedSeries.description"
+                        placeholder="Series Description"
+                        >
+            </div>
+
+            <div class="form-group">
+                <label>Series Director</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        ng-model="ctrl.editedSeries.director"
+                        placeholder="Series Director"
+                        >
+            </div>
+
+            <button
+                    type="submit"
+                    class="btn btn-info btn-lg" style="margin-bottom: 6px"
+                    ng-disabled="ctrl.loading">
+                Save
+                <span ng-show="ctrl.loading" class="glyphicon glyphicon-refresh"></span>
+            </button>
+            <button
+                    type="button"
+                    class="btn btn-default btn-lg pull-right"
+                    ng-click="ctrl.cancelEditing()">
+                Cancel
+            </button>
+        </form>
+    </div>
+</div>

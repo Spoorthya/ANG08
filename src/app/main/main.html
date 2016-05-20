@@ -1,0 +1,16 @@
+<div tiles>
+    <div class="block" ng-repeat="(seriesId, series) in seriesList">
+        <h3>{{series.title}}</h3>
+        <p>{{series.description}}</p>
+        <a href="#/series/{{seriesId}}" class="btn">View</a>
+    </div>
+    <div class="block">
+        <form ng-submit="createSeries(seriesTitle, seriesDesc)">
+            <fieldset>
+                <input type="text" ng-model="seriesTitle" placeholder="Note Title">
+                <textarea rows="3" ng-model="seriesDesc" placeholder="Note content."></textarea>
+                <button type="submit" class="btn">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+</div>

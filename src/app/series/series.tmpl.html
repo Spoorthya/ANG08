@@ -1,0 +1,27 @@
+<div
+        class="simple-series"
+        ng-click="ctrl.setEditedSeries(seriesId, series)"
+        ng-class="{'active': ctrl.isCurrentSeries(seriesId)}">
+    <button type="button"
+            class="close"
+            ng-click="ctrl.deleteSeries(seriesId)">
+        &times;
+    </button>
+    <h3>{{series.title}}</h3>
+
+    <p>
+        <strong>
+            {{series.startDate}}
+        </strong>
+        <strong>
+            {{series.description}}
+        </strong>
+    </p>
+
+    <a
+        type="button"
+        ui-sref="notes({seriesId:seriesId})"
+        class="view arrow-bottom-right btn btn-default">
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    </a>
+</div>
